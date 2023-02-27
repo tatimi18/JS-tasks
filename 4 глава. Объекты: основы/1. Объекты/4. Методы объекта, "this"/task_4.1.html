@@ -1,0 +1,42 @@
+ <!-- //* Создайте калькулятор
+важность: 5
+Создайте объект calculator (калькулятор) с тремя методами:
+
+read() (читать) запрашивает два значения и сохраняет их как свойства объекта.
+sum() (суммировать) возвращает сумму сохранённых значений.
+mul() (умножить) перемножает сохранённые значения и возвращает результат.
+let calculator = {
+  // ... ваш код ...
+};
+
+calculator.read();
+alert( calculator.sum() );
+alert( calculator.mul() ); -->
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+	<script>
+		let calculator = {
+
+			read() {
+				this.firstVal = ( Number(prompt('Введите первое число', '')) );
+				this.secondVal = ( Number(prompt('Введите второе число', '')) );
+			},
+
+			sum() {
+				return this.firstVal + this.secondVal;
+			},
+
+			mul() {
+				return this.firstVal * this.secondVal;
+			}
+		};
+
+		calculator.read();
+		alert( calculator.sum() );
+		alert( calculator.mul() )
+
+	</script>
+</body>
+</html>
