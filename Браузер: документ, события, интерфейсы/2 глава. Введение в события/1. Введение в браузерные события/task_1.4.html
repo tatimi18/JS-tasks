@@ -1,0 +1,48 @@
+<!-- Создать раскрывающееся меню
+важность: 5
+Создать меню, которое по нажатию открывается либо закрывается:
+
+P.S. HTML/CSS исходного документа можно и нужно менять. -->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    #tap {
+        cursor: pointer
+    }
+    #close, #open {
+        color: green
+    }
+    .hidden {
+        display: none
+    }
+  </style>
+</head>
+<body>
+    <div id="tap">
+        <span id="close">▶ </span> <span id="open" class="hidden">▼ </span> Сладости (нажми меня)!
+    </div>
+    <ul id="ul" class="hidden">
+        <li>Пирожное</li>
+        <li>Пончик</li>
+        <li>Мёд</li>
+    </ul>
+
+    <script>
+        let tap = document.getElementById('tap');
+        let ul = document.getElementById('ul');
+        let close = document.getElementById('close');
+        let open = document.getElementById('open');
+        
+        tap.onclick = function() {
+            ul.classList.toggle('hidden');
+            close.classList.toggle('hidden');
+            open.classList.toggle('hidden');
+        }
+
+
+    </script>
+</body>
+</html>

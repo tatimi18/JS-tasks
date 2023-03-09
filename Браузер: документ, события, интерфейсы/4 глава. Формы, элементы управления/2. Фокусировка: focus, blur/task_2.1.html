@@ -1,0 +1,62 @@
+<!-- Редактируемый div
+важность: 5
+Создайте <div>, который превращается в <textarea>, если на него кликнуть.
+
+<textarea> позволяет редактировать HTML в элементе <div>.
+
+Когда пользователь нажимает Enter или переводит фокус, <textarea> превращается обратно в <div>, и его содержимое становится HTML-кодом в <div>. -->
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <link type="text/css" rel="stylesheet" href="task_2.1.css">
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+    <ul>
+        <li>Кликните на div ниже, чтобы отредактировать текст.</li>
+        <li>Нажатие на Enter или потеря фокуса с ввода сохранят содержимое.</li>
+    </ul>
+
+    HTML-код разрешён.
+
+    <div id="view" class="view">Текст</div>
+
+    <script>
+        let textarea = null;
+        let view = document.getElementById('view');
+
+        view.onclick = function() {
+            startChange();
+        };
+
+        function startChange() {
+            textarea = document.createElement('textarea');
+            textarea.className = 'edit';
+            textarea.value = view.innerHTML;
+
+            textarea.onkeydown = function(event) {
+                if (event.key == 'Enter') {
+                    this.blur();
+                }
+            };
+
+            textarea.onblur = function() {
+                endChange();
+            };
+
+            view.replaceWith(textarea);
+            textarea.focus();
+            };
+
+        function endChange() {
+            view.innerHTML = textarea.value;
+            textarea.replaceWith(view);
+        }
+    </script>
+
+</body>
+</html>
